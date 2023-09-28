@@ -9,17 +9,8 @@ const client = new Client({
 const IGNORE_PREFIX = "!";
 const CHANNELS = [process.env.CHANNEL_ID];
 
-let onlineNotificationChannel;
-
 client.on("ready", () => {
   console.log("The bot is online.");
-
-  onlineNotificationChannel = client.channels.cache.get(CHANNELS[0]);
-
-  if (onlineNotificationChannel) {
-    onlineNotificationChannel.send("🌟 The bot is now online! 🟢 #StayConnected");
-  }
-
 });
 
 const openai = new OpenAI({
